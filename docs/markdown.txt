@@ -1,0 +1,4 @@
+# SoundWeave Swarm Ideas
+- Fractal harmonics (Meta AI, Oct 5)
+- Virtual sensors (Swarm Bot, Nov 7)
+- X API integration (April 18)
