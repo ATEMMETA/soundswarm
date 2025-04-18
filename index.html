@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundWeave Swarm</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes swarm {
+            0% { transform: translate(0, 0); opacity: 0.5; }
+            50% { transform: translate(10px, -10px); opacity: 1; }
+            100% { transform: translate(0, 0); opacity: 0.5; }
+        }
+        .swarm-particle {
+            animation: swarm 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-black text-cyan-400 min-h-screen flex flex-col items-center font-mono">
+    <!-- Home Screen -->
+    <div class="max-w-md w-full p-4">
+        <h1 class="text-4xl font-bold text-center mt-8">SoundWeave Swarm</h1>
+        <p class="text-center text-gray-400 mt-2">Swarm Your Sound, Shape Your Mind</p>
+        <div class="swarm-wheel grid grid-cols-3 gap-4 mt-8">
+            <button class="bg-purple-900 text-cyan-400 p-4 rounded-full hover:bg-purple-700 transition">Calm</button>
+            <button class="bg-purple-900 text-cyan-400 p-4 rounded-full hover:bg-purple-700 transition">Focus</button>
+            <button class="bg-purple-900 text-cyan-400 p-4 rounded-full hover:bg-purple-700 transition">Energize</button>
+        </div>
+        <input type="file" accept=".mp3,.wav" class="mt-8 w-full text-gray-400">
+        <button class="bg-cyan-400 text-black p-4 rounded-full mt-4 w-full hover:bg-cyan-300 transition">Swarm Weave</button>
+    </div>
+
+    <!-- Transformation Mode (Hidden until Weave) -->
+    <div class="max-w-md w-full p-4 hidden">
+        <h2 class="text-2xl font-bold text-center">Weaving...</h2>
+        <div class="relative w-full h-24 bg-gray-900 rounded mt-4">
+            <!-- Waveform Placeholder -->
+            <div class="absolute w-full h-full bg-gradient-to-r from-cyan-400 to-purple-900 opacity-50"></div>
+            <!-- Swarm Particles -->
+            <div class="absolute w-2 h-2 bg-cyan-400 rounded-full swarm-particle"></div>
+            <div class="absolute w-2 h-2 bg-purple-900 rounded-full swarm-particle left-10"></div>
+        </div>
+        <label class="block mt-4 text-gray-400">Effect Intensity</label>
+        <input type="range" min="0" max="100" class="w-full mt-2">
+        <button class="bg-cyan-400 text-black p-4 rounded-full mt-4 w-full hover:bg-cyan-300 transition">Swarm Weave</button>
+        <button class="bg-gray-900 text-cyan-400 p-4 rounded-full mt-2 w-full hover:bg-gray-700 transition">Reset to Original</button>
+        <button class="text-gray-400 mt-4 underline">Journal</button>
+    </div>
+
+    <!-- Journal (Hidden until Clicked) -->
+    <div class="max-w-md w-full p-4 hidden">
+        <h2 class="text-2xl font-bold text-center">Journal</h2>
+        <textarea class="w-full h-32 bg-gray-900 text-cyan-400 p-4 rounded mt-4" placeholder="How did this weave feel?"></textarea>
+        <button class="bg-cyan-400 text-black p-4 rounded-full mt-4 w-full hover:bg-cyan-300 transition">Save Note</button>
+        <button class="text-gray-400 mt-2 underline">Export Notes</button>
+    </div>
+
+    <!-- AdSense Footer -->
+    <footer class="mt-auto text-sm text-gray-400 p-4 text-center">
+        Powered by SoundWeave Swarm | Ads by Google
+        <!-- Add AdSense <script> here post-deploy -->
+    </footer>
+
+    <script>
+        // Basic JS for toggling views (full logic post-MVP)
+        document.querySelectorAll('.swarm-wheel button').forEach(btn => {
+            btn.addEventListener('click', () => alert(`Selected: ${btn.textContent}`));
+        });
+    </script>
+</body>
+</html>
